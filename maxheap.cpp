@@ -27,7 +27,7 @@ void display()
 {
 	for(int i=0;i<len;i++)
 	{
-		cout<<heap[i]<<"\n";
+		cout<<heap[i]<<"\t";
 	}
 }
 
@@ -40,20 +40,27 @@ void remove_h()
 	int c2=2*i+2;
 	while(c1<len && c2<len )
 	{
+		
 	if(heap[c1]==0 && heap[c2]==0)
 	{
-		break;	
+		break;
+		
+	
 	}
+	
 		else if(heap[c1]!=0 && heap[c2]!=0)
 	{
+		cout<<"\n block1\n";
 		if(heap[c1]>heap[c2])
 		{
+			
 				int temp=0;
 				temp=heap[i];
-				heap[c1]=heap[i];
-				heap[i]=temp;                                      //""\
+				heap[i]=heap[c1];
+				heap[c1]=temp;                                      //""\
 				delete temp;
-				i++;
+	
+				i=c1;
 		c1=2*i+1;
 		c2=2*i+2;
 		}
@@ -61,10 +68,10 @@ void remove_h()
 		{
 				int temp=0;
 				temp=heap[i];
-				heap[c2]=heap[i];
-				heap[i]=temp;                                      //""\
+				heap[i]=heap[c2];
+				heap[c2]=temp;                                      //""\
 				delete temp;
-				i=i+2;
+				i=c2;
 		c1=2*i+1;
 		c2=2*i+2;
 		}
@@ -72,17 +79,18 @@ void remove_h()
 	}
 	else if(heap[c1]==0 || heap[c2]==0)
 	{
+		cout<<"\n block2\n";
 		if(heap[c1]!=0)
 		{
 			if(heap[c1]>heap[i])
 			{
 				int temp=0;
 				temp=heap[i];
-				heap[c1]=heap[i];
-				heap[i]=temp;                                      //""\
+				heap[i]=heap[c1];
+				heap[c1]=temp;                                      //""\
 				delete temp;	
 			}
-			i++;
+			i=c1;
 			c1=2*i+1;
 			c2=2*i+2;
 		}
@@ -92,18 +100,19 @@ void remove_h()
 			{
 				int temp=0;
 				temp=heap[c2];
-				heap[c2]=heap[i];
-				heap[i]=temp;                                      //""\
+				heap[i]=heap[c2];
+				heap[c2]=temp;                                      //""\
 				delete temp;	
 			}
-			i=i+2;
+			i=c2;
 			c1=2*i+1;
 			c2=2*i+2;
 			
 		}
 		
 	}
-
+		
+	
 	}
 }
 

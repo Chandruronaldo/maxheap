@@ -50,7 +50,7 @@ void remove_h()
 	
 		else if(heap[c1]!=0 && heap[c2]!=0)
 	{
-		cout<<"\n block1\n";
+		
 		if(heap[c1]>heap[c2])
 		{
 			
@@ -79,7 +79,7 @@ void remove_h()
 	}
 	else if(heap[c1]==0 || heap[c2]==0)
 	{
-		cout<<"\n block2\n";
+		
 		if(heap[c1]!=0)
 		{
 			if(heap[c1]>heap[i])
@@ -117,7 +117,7 @@ void remove_h()
 }
 
 int main() {
-	int v=0,n=0;
+	int v=0,n=0,achoice=0,bchoice=0,l=0;
 	cout<<"\n Enter the initial no elememts of MAX HEAP";
 	cin>>n;
 	cout<<"\n Enter the elements";
@@ -127,11 +127,24 @@ int main() {
 		insert(v);
 	}
 	
-	
-	cout<<"\n\n";
-	display();
-	remove_h();
-	cout<<"\n\neruma";
+	do
+	{
+		cout<<"\n Enter the operation that you want to perform 1) Insert\t 2)Delete";
+		cin>>achoice;
+		switch(achoice)
+		{
+			case 1: cout<<"\n Enter the element you want to insert";
+				cin>>l;
+				insert(l);
+				break;
+			
+			case 2: remove_h();
+				break;
+		}
+		cout<<"\nDo want to do any other operation? \t If Yes press 1 if No press 0";
+		cin>>bchoice;
+	}while(bchoice==1);
+	cout<<"\n The heap after all operations\t";
 	display();
 	return 0;
 }
